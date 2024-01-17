@@ -1,84 +1,134 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>ClientVault</title>
-    
-    <link rel="stylesheet" href="Clientvault.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,400;0,500;1,100;1,300;1,400;1,500&display=swap" rel="stylesheet">
-  </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Client Management Dashboard</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
 
-  <body> 
-    <!-- The image-container div holds a logo image. -->
-       <div class="image-container">
-      <img src="R Y T & Co.png" alt="" class="ca-image" >
-       </div>
-     <!-- The container div contains sign-up and sign-in forms along with a toggle button. -->
-    <div class="container" id="container">
-      <div class="form-container sign-up ">
-    <form >
-      <h1>Create Account</h1>
-      <div class="social-icons">
-        <a href="#" class="icon"><i class="fa-brands fa-google"></i></a>
-        <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
-        <a href="#" class="icon"><i class="fa-brands fa-linkedin"></i></a>
-        <a href="#" class="icon"><i class="fa-brands fa-facebook"></i></a>
-      </div>
-      <span>or Use your Mobile number for registration</span>
-      <input type="text" placeholder="Full Name">
-      <input type="number" placeholder="Adhaar ID">
-      <input type="number" placeholder="Security Pin">
-      <button>Sign Up</button>
-       </form>  
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        section {
+            margin-bottom: 30px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        .user-info p {
+            margin: 8px 0;
+        }
+
+        .clients-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .client-card {
+            width: calc(33.33% - 20px);
+            margin: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 15px;
+            background-color: white;
+        }
+
+        .client-card h3 {
+            margin-top: 0;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Secure Client Management Dashboard</h1>
+    </header>
+    <main>
+        <section class="user-info">
+            <h2>User Information</h2>
+            <p>Name: John Doe</p>
+            <p>Email: john@example.com</p>
+            <p>Phone: 123-456-7890</p>
+        </section>
+
+        <section class="clients-section">
+            <h2>Clients</h2>
+            <div id="clients-container"></div>
+        </section>
+    </main>
+    <div class="container">
+        <row class="col-12"></row>
     </div>
-    <div class="form-container sign-in credentials">
-      <form>
-        <h1>Sign In</h1>
-        <div class="social-icons">
-          <a href="#" class="icon"><i class="fa-brands fa-google"></i></a>
-          <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
-          <a href="#" class="icon"><i class="fa-brands fa-linkedin"></i></a>
-          <a href="#" class="icon"><i class="fa-brands fa-facebook"></i></a>
-        </div>
-        <span>or Use your Mobile number</span>
-        <input type="number" placeholder="Adhaar ID">
-        <input type="number" placeholder="Security Pin">
-        <button>Sign In</button>
-          <a href="#">Forget the Security Pin</a>
-        </form>
-        </div>  
-        <!-- The toggle-container contains a toggle div with two panels: one for sign-in and one for sign-up. -->
-    <div class="toggle-container">
-        <div class="toggle">
-          <div class="toggle-panel toggle-left">
-            <h1>Welcome Back!</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit, sapiente!</p>
-            <button class="hidden" id="login">Sign In</button>
-          </div>
-          <div class="toggle-panel toggle-right">
-            <h1>Hello User!</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit, sapiente!</p>
-            <button class="hidden" id="register">Sign Up</button>          
-          </div>
-        </div>
-      </div>
-  </div>
-   <script>
-   const container = document.getElementById('container');
-    const registerBtn = document.getElementById('register');//This element represents the button for switching to the sign-up form.//
-    const loginBtn = document.getElementById('login');//This element represents the button for switching to the sign-in form.//
-    
-    registerBtn.addEventListener('click', () => {
-        container.classList.add("active");
-    });
-    
-    loginBtn.addEventListener('click', () => {
-        container.classList.remove("active");
-    });</script>
-    <!-- classList.add method adds a class, and classList.remove removes a class from the specified HTML element. -->
-  </body>
+
+    <script>
+        const clientsData = [
+            { id: 1, name: 'Client A', email: 'clientA@example.com', revenue: 50000, expenses: 10000 },
+            { id: 2, name: 'Client B', email: 'clientB@example.com', revenue: 30000, expenses: 8000 },
+            // Add more client data as needed
+        ];
+
+        const clientsContainer = document.getElementById('clients-container');
+
+        function displayClients() {
+            clientsContainer.innerHTML = '';
+
+            clientsData.forEach(client => {
+                const clientCard = document.createElement('div');
+                clientCard.classList.add('client-card');
+
+                const clientInfo = `
+                    <h3>${client.name}</h3>
+                    <p>Email: ${client.email}</p>
+                    <p>Revenue: $${client.revenue}</p>
+                    <p>Expenses: $${client.expenses}</p>
+                    <button onclick="viewFinancialDetails(${client.id})">View Financial Details</button>
+                `;
+
+                clientCard.innerHTML = clientInfo;
+                clientsContainer.appendChild(clientCard);
+            });
+        }
+
+        function viewFinancialDetails(clientId) {
+            const selectedClient = clientsData.find(client => client.id === clientId);
+
+            alert(`Financial Details for ${selectedClient.name}\nRevenue: $${selectedClient.revenue}\nExpenses: $${selectedClient.expenses}`);
+        }
+
+        displayClients();
+    </script>
+</body>
 </html>
