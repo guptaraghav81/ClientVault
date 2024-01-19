@@ -70,6 +70,64 @@
         button:hover {
             background-color: #45a049;
         }
+
+        
+        header {
+            background-color: #333;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            position: relative;
+        }
+
+        #indian-flag, #profile-icon {
+            position: absolute;
+            top: 15px;
+        }
+
+        #indian-flag {
+            right: 60px;
+            width: 30px;
+            height: 20px;
+        }
+
+        #profile-icon {
+            right: 15px;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: #fff;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        #profile-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        section {
+            background-color: #fff;
+            margin: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        section h2 {
+            color: #333;
+            padding: 20px;
+            margin: 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        section p {
+            color: #555;
+            padding: 10px;
+            margin: 0;
+        }
+
     </style>
 </head>
 <body>
@@ -89,9 +147,27 @@
             <div id="clients-container"></div>
         </section>
     </main>
-    <div class="container">
-        <row class="col-12"></row>
-    </div>
+     
+    <header>
+        <h1>Dashboard</h1>
+        <img id="indian-flag" src="indian-flag.png" alt="Indian Flag">
+        <div id="profile-icon">
+            <!-- Add a placeholder image or dynamically load user profile image here -->
+            <img src="profile-placeholder.jpg" alt="Profile Icon">
+        </div>
+    </header>
+
+    <section id="user-info">
+        <h2>User Information</h2>
+        <p>Name: John Doe</p>
+        <p>Email: john.doe@example.com</p>
+    </section>
+
+    <section id="financial-status">
+        <h2>Financial Status</h2>
+        <p>Account Balance: $10,000</p>
+        <p>Investments: $5,000</p>
+    </section>
 
     <script>
         const clientsData = [
