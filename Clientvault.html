@@ -1,210 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Secure Client Management Dashboard</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f0f0f0;
-        }
-
-        header {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 1em;
-        }
-
-        main {
-            padding: 20px;
-        }
-
-        section {
-            margin-bottom: 30px;
-            background-color: white;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 20px;
-        }
-
-        h2 {
-            color: #333;
-        }
-
-        .user-info p {
-            margin: 8px 0;
-        }
-
-        .clients-section {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-        }
-
-        .client-card {
-            width: calc(33.33% - 20px);
-            margin: 10px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            padding: 15px;
-            background-color: white;
-        }
-
-        .client-card h3 {
-            margin-top: 0;
-        }
-
-        button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #45a049;
-        }
-
-        
-        header {
-            background-color: #333;
-            color: white;
-            padding: 15px;
-            text-align: center;
-            position: relative;
-        }
-
-        #indian-flag, #profile-icon {
-            position: absolute;
-            top: 15px;
-        }
-
-        #indian-flag {
-            right: 60px;
-            width: 30px;
-            height: 20px;
-        }
-
-        #profile-icon {
-            right: 15px;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            background-color: #fff;
-            overflow: hidden;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-        }
-
-        #profile-icon img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        section {
-            background-color: #fff;
-            margin: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-        }
-
-        section h2 {
-            color: #333;
-            padding: 20px;
-            margin: 0;
-            border-bottom: 1px solid #ddd;
-        }
-
-        section p {
-            color: #555;
-            padding: 10px;
-            margin: 0;
-        }
-
-    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="Clientvault.css">
+    <title>Clientvault</title>
 </head>
+
 <body>
-    <header>
-        <h1>Secure Client Management Dashboard</h1>
-    </header>
-    <main>
-        <section class="user-info">
-            <h2>User Information</h2>
-            <p>Name: John Doe</p>
-            <p>Email: john@example.com</p>
-            <p>Phone: 123-456-7890</p>
-        </section>
 
-        <section class="clients-section">
-            <h2>Clients</h2>
-            <div id="clients-container"></div>
-        </section>
-    </main>
-     
-    <header>
-        <h1>Dashboard</h1>
-        <img id="indian-flag" src="indian-flag.png" alt="Indian Flag">
-        <div id="profile-icon">
-            <!-- Add a placeholder image or dynamically load user profile image here -->
-            <img src="profile-placeholder.jpg" alt="Profile Icon">
+    <div class="container" id="container">
+        <div class="form-container sign-up">
+            <form>
+                <h1>Create Account</h1>
+                <div class="social-icons">
+                    <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+                <span>or use your email for registeration</span>
+                <input type="text" placeholder="Name">
+                <input type="email" placeholder="Email">
+                <input type="password" placeholder="Password">
+                <button>Sign Up</button>
+            </form>
         </div>
-    </header>
+        <div class="form-container sign-in">
+            <form>
+                <h1>Sign In</h1>
+                <div class="social-icons">
+                    <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+                <span>or use your email password</span>
+                <input type="email" placeholder="Email">
+                <input type="password" placeholder="Password">
+                <a href="#">Forget Your Password?</a>
+                <a href="./User.html" class="signin">Sign In</a>
+            </form>
+        </div>
+        <div class="toggle-container">
+            <div class="toggle">
+                <div class="toggle-panel toggle-left">
+                    <h1>Welcome Back!</h1>
+                    <p>Enter your personal details to use all of site features</p>
+                    <button class="hidden" id="login">Sign In</button>
+                </div>
+                <div class="toggle-panel toggle-right">
+                    <h1>Hello, Friend!</h1>
+                    <p>Register with your personal details to use all of site features</p>
+                    <button class="hidden" id="register">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <section id="user-info">
-        <h2>User Information</h2>
-        <p>Name: John Doe</p>
-        <p>Email: john.doe@example.com</p>
-    </section>
-
-    <section id="financial-status">
-        <h2>Financial Status</h2>
-        <p>Account Balance: $10,000</p>
-        <p>Investments: $5,000</p>
-    </section>
-
-    <script>
-        const clientsData = [
-            { id: 1, name: 'Client A', email: 'clientA@example.com', revenue: 50000, expenses: 10000 },
-            { id: 2, name: 'Client B', email: 'clientB@example.com', revenue: 30000, expenses: 8000 },
-            // Add more client data as needed
-        ];
-
-        const clientsContainer = document.getElementById('clients-container');
-
-        function displayClients() {
-            clientsContainer.innerHTML = '';
-
-            clientsData.forEach(client => {
-                const clientCard = document.createElement('div');
-                clientCard.classList.add('client-card');
-
-                const clientInfo = `
-                    <h3>${client.name}</h3>
-                    <p>Email: ${client.email}</p>
-                    <p>Revenue: $${client.revenue}</p>
-                    <p>Expenses: $${client.expenses}</p>
-                    <button onclick="viewFinancialDetails(${client.id})">View Financial Details</button>
-                `;
-
-                clientCard.innerHTML = clientInfo;
-                clientsContainer.appendChild(clientCard);
-            });
-        }
-
-        function viewFinancialDetails(clientId) {
-            const selectedClient = clientsData.find(client => client.id === clientId);
-
-            alert(`Financial Details for ${selectedClient.name}\nRevenue: $${selectedClient.revenue}\nExpenses: $${selectedClient.expenses}`);
-        }
-
-        displayClients();
-    </script>
+    <script src="ClientVault.js"></script>
 </body>
+
 </html>
